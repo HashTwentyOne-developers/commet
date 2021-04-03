@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Commet Multipurpose System'),
+    'name' => env('APP_NAME', 'Commet'),
 
     /*
     |--------------------------------------------------------------------------
