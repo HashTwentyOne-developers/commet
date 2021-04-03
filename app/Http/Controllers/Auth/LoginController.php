@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Egulias\EmailValidator\Validation\EmailValidation;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -36,5 +37,25 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+     /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        $input_type = request()->input('input_field');
+
+        if(filter_var($input_type,FILTER_VALIDATE_EMAIL)){
+            $type='email';
+        }
+        else{
+            $type='phone_number';
+        }
+
+        request()->merge([$type =>$input_type]);
+        return $type;
     }
 }

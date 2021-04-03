@@ -56,4 +56,20 @@ MAIL_USERNAME=e5e35313bb715a
 MAIL_PASSWORD=b814f038270f7c
 MAIL_ENCRYPTION=tls
 
+## login with Email and phonenumber
+public function username()
+    {
+        $input_type = request()->input('input_field');
+
+        if(filter_var($input_type,FILTER_VALIDATE_EMAIL)){
+            $type='email';
+        }
+        else{
+            $type='phone_number';
+        }
+
+        request()->merge([$type =>$input_type]);
+        return $type;
+    }
+
  
