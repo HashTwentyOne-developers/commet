@@ -34,5 +34,26 @@ Working flow
 
    ## vonage/nexcom
 
+   ## Mail and Motification
+   php artisan make:mail AccountConfirmationMail
+   php artisan make:notification AccountConfirmationNotification
+
+## Mail server configaration
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.googlemail.com
+MAIL_PORT=465
+MAIL_USERNAME=service.hash21@gmail.com
+MAIL_PASSWORD=serVice@has21
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS=service.hash21@gmail.com
+MAIL_FROM_NAME="${APP_NAME}"
+
+## Mailtrap
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=e5e35313bb715a
+MAIL_PASSWORD=b814f038270f7c
+MAIL_ENCRYPTION=tls
 
  
