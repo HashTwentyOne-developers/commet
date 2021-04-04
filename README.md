@@ -56,6 +56,9 @@ MAIL_USERNAME=e5e35313bb715a
 MAIL_PASSWORD=b814f038270f7c
 MAIL_ENCRYPTION=tls
 
+## php artisan config:cache
+
+
 ## login with Email and phonenumber
 public function username()
     {
