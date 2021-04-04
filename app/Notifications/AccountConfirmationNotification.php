@@ -44,7 +44,7 @@ class AccountConfirmationNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Welcome' . $this->notify_info->name .'to HashTwentyOne' )
+                    ->line('Welcome ' . $this->notify_info->name .' to HashTwentyOne' )
                     ->line('We are really have to getting you ' )
                     ->action('Just Click here to visit our sites', url('/www.asoiu.asia'))
                     ->line('Thank you for using our application!');
