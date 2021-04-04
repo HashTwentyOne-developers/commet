@@ -16,12 +16,13 @@
                         <p class="account-subtitle">Access to our dashboard</p>
 
                         <!-- Form -->
-                        <form action="https://dreamguys.co.in/demo/doccure/admin/index.html">
+                        <form action="{{ route('admin.login') }}" method="POST">
+                            @csrf
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Email">
+                                <input class="form-control" type="text" name="input_field" placeholder="Email/phone">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Password">
+                                <input class="form-control" type="text" name="password" placeholder="Password">
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary btn-block" type="submit">Login</button>
