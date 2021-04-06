@@ -11,5 +11,9 @@
 
 <link rel="stylesheet" href="{{ asset('admin/assets/plugins/morris/morris.css') }}">
 
+
 <!-- Main CSS -->
 <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
+
+<!-- Sweet alert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

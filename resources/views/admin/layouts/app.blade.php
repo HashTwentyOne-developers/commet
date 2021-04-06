@@ -21,7 +21,7 @@
 
         @show
 
-	@include('admin.layouts.partials.style')
+	@include('admin.layouts.partials.scripts')
 
     </body>
 

@@ -4,7 +4,7 @@
     <!-- Logo -->
     <div class="header-left">
         <a href="index.html" class="logo">
-            <img src="assets/img/logo.png" alt="Logo">
+            <img src="{{ URL::to('admin/assets/img/logo.png') }}" alt="Logo">
         </a>
         <a href="index.html" class="logo logo-small">
             <img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
@@ -48,7 +48,7 @@
                             <a href="#">
                                 <div class="media">
                                     <span class="avatar avatar-sm">
-                                        <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/doctors/doctor-thumb-01.jpg">
+                                        <img class="avatar-img rounded-circle" alt="User Image" src="{{ URL::to('admin/assets/img/doctors/doctor-thumb-01.jpg') }}">
                                     </span>
                                     <div class="media-body">
                                         <p class="noti-details"><span class="noti-title">Dr. Ruby Perrin</span> Schedule <span class="noti-title">her appointment</span></p>
@@ -108,12 +108,12 @@
         <!-- User Menu -->
         <li class="nav-item dropdown has-arrow">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="Ryan Taylor"></span>
+                <span class="user-img"><img class="rounded-circle" src="{{ URL::to('admin/assets/img/profiles/avatar-01.jpg') }}" width="31" alt="Ryan Taylor"></span>
             </a>
             <div class="dropdown-menu">
                 <div class="user-header">
                     <div class="avatar avatar-sm">
-                        <img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
+                        <img src="{{ URL::to('admin/assets/img/profiles/avatar-01.jpg') }}" alt="User Image" class="avatar-img rounded-circle">
                     </div>
                     <div class="user-text">
                         <h6>Ryan Taylor</h6>
