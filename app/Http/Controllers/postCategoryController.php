@@ -28,7 +28,7 @@ class postCategoryController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -61,7 +61,7 @@ class postCategoryController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -95,7 +95,9 @@ class postCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $cat_del= postCategory::find($id);
+       $cat_del ->delete();
+       return redirect()->back()->with('delete','Data Deleted Successfully');
     }
 
     /**

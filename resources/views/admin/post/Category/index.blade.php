@@ -75,7 +75,11 @@
                                             {{-- <a href="#" class="btn btn-sm btn-success"><i class="fa fa-eye" aria-hidden="true"></i> --}}
                                             </a>
                                             <a href="#" class="btn btn-sm btn-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-telegram" aria-hidden="true"></i></a>
-                                            <a href="#" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            <form action="{{ route('postcat.destroy', $data->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                            <button class=" btn btn-sm btn-danger del_button" data-toggle="tooltip" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach

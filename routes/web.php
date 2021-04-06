@@ -38,3 +38,4 @@ Route::resource('post','App\Http\Controllers\postController');
 Route::resource('postcat','App\Http\Controllers\postCategoryController');
 Route::get('postcat/statusInactive/{id}','App\Http\Controllers\postCategoryController@statusCheckedInactive');
 Route::get('postcat/statusActive/{id}','App\Http\Controllers\postCategoryController@statusCheckedActive');
+

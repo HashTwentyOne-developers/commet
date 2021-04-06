@@ -37,6 +37,19 @@
 
         });
 
+        // delete fix
+        $('.del_button').click(function(){
+           let conf= confirm('Ary you sure');
+           if(conf==true)
+           {
+               return true;
+           }
+           else{
+               return false;
+           }
+
+        });
+
 
     });
     })(jQuery)
