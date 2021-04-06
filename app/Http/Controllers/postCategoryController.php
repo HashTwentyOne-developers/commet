@@ -97,4 +97,21 @@ class postCategoryController extends Controller
     {
         //
     }
+
+    /**
+     * status Inactive dunction
+     */
+    public function statusCheckedInactive($id){
+
+       $status_update=postCategory::find($id);
+       $status_update -> status = false;
+       $status_update ->update();
+    }
+
+    public function statusCheckedActive($id){
+
+        $status_update=postCategory::find($id);
+        $status_update -> status = true;
+        $status_update ->update();
+    }
 }
