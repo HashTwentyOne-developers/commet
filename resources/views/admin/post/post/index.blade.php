@@ -33,7 +33,7 @@
 
             <div class="row">
                <div class="div">
-                <a href="#" class="btn btn-sm btn-info">Add Post</a>
+                <a href="{{ route('post.create') }}" class="btn btn-sm btn-info">Add Post</a>
                </div>
                <br><br>
 

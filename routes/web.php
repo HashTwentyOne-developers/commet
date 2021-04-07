@@ -36,6 +36,7 @@ Route::post('admin/register',[App\Http\Controllers\Auth\RegisterController::clas
 // Post Route
 Route::resource('post','App\Http\Controllers\postController');
 
+
 // post controller
 Route::resource('postcat','App\Http\Controllers\postCategoryController');
 Route::get('postcat/statusInactive/{id}','App\Http\Controllers\postCategoryController@statusCheckedInactive');

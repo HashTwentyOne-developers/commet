@@ -11,6 +11,10 @@
 
         });
 
+        //CK-editor
+
+        CKEDITOR.replace( 'ckeditor' );
+
         // post category status
 
         $(document).on('click','input.check',function(){
