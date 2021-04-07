@@ -72,7 +72,11 @@ class postCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit_data = postCategory::find($id);
+        return[
+            'id' => $edit_data->id,
+            'name' => $edit_data->name,
+        ];
     }
 
     /**
@@ -84,7 +88,16 @@ class postCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $edit_id = $request ->cat_id;
+
+        $edit_data = postCategory::find($edit_id);
+        $edit_data ->name=$request->cat_name;
+        $edit_data ->slug=Str::slug($request->cat_name);
+        $edit_data ->update();
+
+        return redirect()->route('postcat.index') ->with('success','data updated successfully');
+
     }
 
     /**

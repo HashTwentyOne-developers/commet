@@ -15,7 +15,7 @@
 
     {{-- <p class="alert alert-success"> {{Session::get('success') }} <button class="close" data-dismiss="alert">&times;</button></p> --}}
 <script>
-    swal("Good job!", "Data Store Successfully", "success");
+    swal("Good job!", "{{Session::get('success') }}", "success");
 </script>
 
 @endif

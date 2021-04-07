@@ -74,7 +74,7 @@
                                         <td>
                                             {{-- <a href="#" class="btn btn-sm btn-success"><i class="fa fa-eye" aria-hidden="true"></i> --}}
                                             </a>
-                                            <a href="#" class="btn btn-sm btn-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                                            <a href="#" edit_id="{{ $data->id }}" class="btn btn-sm btn-warning update_cat" data-toggle="tooltip modal" title="Edit"><i class="fa fa-telegram" aria-hidden="true"></i></a>
                                             <form action="{{ route('postcat.destroy', $data->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
@@ -109,6 +109,31 @@
                     @csrf
                     <input class="form-control" type="text" name="cat_name" placeholder="Category Name"><br>
                     <input class="btn btn-sm btn-info float-right" type="submit">
+                </form>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Update Category -->
+
+<div class="modal fade" id="edit_cat_modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Update Category</h4>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('postcat.update',1) }}" method="POST"  class="form-group">
+                    @csrf
+                    @method('PUT')
+
+                    <input class="form-control" type="text" name="cat_name" placeholder="Category Name"><br>
+                    <input class="form-control" type="hidden" name="cat_id" placeholder="Category id">
+                    <input class="btn btn-sm btn-info float-right" type="submit" value="Update">
                 </form>
             </div>
             <div class="modal-footer"></div>
