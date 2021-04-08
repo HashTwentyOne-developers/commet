@@ -15,6 +15,20 @@
 
         CKEDITOR.replace( 'ckeditor' );
 
+            // select2
+
+            $('.post_tag_select').select2();
+        //image-preview
+
+        $(document).on('change','input#fimg',function(e){
+            e.preventDefault();
+            let post_img_url =URL.createObjectURL(e.target.files[0]);
+            $('img#feather_img').attr('src',post_img_url);
+            $('#first').hide();
+            $('#second').show();
+        });
+
+
         // post category status
 
         $(document).on('click','input.check',function(){
@@ -147,6 +161,49 @@
             }
 
          });
+
+
+        //  post type select properties
+        $('#post_format').change(function(){
+
+            let format =$(this).val();
+
+            if(format == 'spost')
+            {
+                $('.standard_post').show();
+            }
+            else
+            {
+                $('.standard_post').hide();
+            }
+
+            if(format == 'gpost')
+            {
+                $('.gallery_post').show();
+            }
+            else
+            {
+                $('.gallery_post').hide();
+            }
+
+            if(format == 'vpost')
+            {
+                $('.video_post').show();
+            }
+            else
+            {
+                $('.video_post').hide();
+            }
+
+            if(format == 'apost')
+            {
+                $('.audio_post').show();
+            }
+            else
+            {
+                $('.audio_post').hide();
+            }
+        })
 
     });
     })(jQuery)
