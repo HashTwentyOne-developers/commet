@@ -4146,3 +4146,9 @@ table.table-inbox tbody tr.checked {
 .standard_post,.gallery_post, .video_post, .audio_post{
     display:none;
 }
+
+.gallery_image img{
+    width:200px;
+    height:200px;
+    margin:5px;
+}

@@ -42,7 +42,7 @@
                     <div class="card-header">
                         <h4 class="card-title">Post Table</h4>
                         <a href="{{ route('post.index') }}" class="badge badge-primary">published {{($published == 0 ? '':$published)}}</a>
-                        <a href="{{ route('post.trash') }}" class="badge badge-danger">trash {{( $trash == 0 ? '': $trash) }}</a>
+                        <a href="{{ route('post.trash') }}" class="badge badge-danger"> trash {{( $trash == 0 ? '': $trash) }}</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -53,9 +53,6 @@
                                         <th>Post Title</th>
                                         <th>Post Type</th>
                                         <th>Category</th>
-                                        <th>post image</th>
-
-
                                         <th>Action</th>
 
                                     </tr>
@@ -72,14 +69,18 @@
                                         <td>{{ $loop->index+1 }}</td>
                                         <td>{{ $data->title }}</td>
                                         <td>{{ $featured_data -> post_type}}</td>
-                                        <td>john@example.com</td>
-                                        <td>john@example.com</td>
+                                        <td> </td>
 
                                         <td>
                                             {{-- <a href="#" class="btn btn-sm btn-success"><i class="fa fa-eye" aria-hidden="true"></i>
                                             </a> --}}
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-telegram" aria-hidden="true"></i></a>
-                                            <a href="{{ route('post.trashperform',$data->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            <a href="{{ route('post.trashperform',$data->id) }}" class="btn btn-sm btn-warning">Recover Data</a>
+                                            <form action="{{ route('postcat.destroy', $data->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                            <button class=" btn btn-sm btn-danger del_button" data-toggle="tooltip" title="Delete">Permanant Delete</button>
+                                            </form>
+
                                         </td>
                                     </tr>
                                     @endforeach

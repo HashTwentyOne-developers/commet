@@ -17,11 +17,10 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->string('category');
-            $table->string('tag');
-            $table->string('description');
-            $table->string('photo')->default('avater.jpg');
+            $table->longText('description');
+            $table->string('featured') ->nullable();
             $table->boolean('status')->default(true);
+            $table->boolean('trash')->default(false);
             $table->integer('posted_by');
             $table->timestamps();
         });

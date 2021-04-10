@@ -28,6 +28,22 @@
             $('#second').show();
         });
 
+        // image gallery
+
+        $('input#post_gallery_img').change(function(e){
+
+            let g_img = '';
+            for(let i=0;i<e.target.files.length;i++)
+            {
+                let post_img_url =URL.createObjectURL(e.target.files[i]);
+                g_img += '<img class="shadow" src="'+post_img_url+'"> ';
+                $('#first').hide();
+                $('#second').show();
+
+            }
+            $('.gallery_image').html(g_img);
+        })
+
 
         // post category status
 
@@ -168,7 +184,7 @@
 
             let format =$(this).val();
 
-            if(format == 'spost')
+            if(format == 'image')
             {
                 $('.standard_post').show();
             }
@@ -177,7 +193,7 @@
                 $('.standard_post').hide();
             }
 
-            if(format == 'gpost')
+            if(format == 'gallery')
             {
                 $('.gallery_post').show();
             }
@@ -186,7 +202,7 @@
                 $('.gallery_post').hide();
             }
 
-            if(format == 'vpost')
+            if(format == 'video')
             {
                 $('.video_post').show();
             }
@@ -195,7 +211,7 @@
                 $('.video_post').hide();
             }
 
-            if(format == 'apost')
+            if(format == 'audio')
             {
                 $('.audio_post').show();
             }
