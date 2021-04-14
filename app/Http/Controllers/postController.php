@@ -114,7 +114,7 @@ class postController extends Controller
             'image' => $unique_file_name,
             'gallery_image' => $gall_img,
             'post_audio' =>$request->audio,
-            'post_video' =>$request->video,
+            'post_video' => str_replace('watch?v=','embed/',$request->video)
         ];
 
         post::create([
