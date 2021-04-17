@@ -9,7 +9,7 @@ class frontendViewController extends Controller
 {
     public function blogView(){
 
-        $posts= post::where('trash',false)->latest()->get();
+        $posts= post::where('trash',false)->latest() ->paginate(2);
         return view('frontend.blog',[
             'all_post' => $posts,
         ]);

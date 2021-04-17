@@ -117,13 +117,17 @@ class postController extends Controller
             'post_video' => str_replace('watch?v=','embed/',$request->video)
         ];
 
-        post::create([
+        $posts = post::create([
+            "user_id" =>Auth::user()->id,
             "title" => $request->title,
             "slug" => Str::slug($request->title),
             "featured" => json_encode($featured_img),
             "description" => $request->content,
             "posted_by" => Auth::user()->id
         ]);
+
+        $posts->postCategories()->attach($request->checkbox);
+        $posts->postTags()->attach($request->tag);
 
         return redirect()->route('post.index') ->with('success','post save successfully');
     }
@@ -170,6 +174,8 @@ class postController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $posts = post::find($id);
+        $posts ->delete();
+        return redirect()->back()->with('delete','Data Deleted Successfully');
     }
 }

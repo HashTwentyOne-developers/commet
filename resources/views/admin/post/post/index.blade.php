@@ -51,6 +51,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Post Title</th>
+                                        <th>Author</th>
                                         <th>Post Type</th>
                                         <th>Category</th>
                                         <th>post image</th>
@@ -71,8 +72,15 @@
                                     <tr>
                                         <td>{{ $loop->index+1 }}</td>
                                         <td>{{ $data->title }}</td>
+                                        <td>{{ $data->user->name }}</td>
                                         <td>{{ $featured_data -> post_type}}</td>
-                                        <td>john@example.com</td>
+                                        <td>
+                                            <ul>
+                                            @foreach ($data -> postCategories as $cat )
+                                            <li> {{ $cat -> name }} </li>
+                                            @endforeach
+                                           </ul>
+                                        </td>
                                         <td>john@example.com</td>
 
                                         <td>

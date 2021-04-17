@@ -78,10 +78,10 @@
                                     <div class="form-group row">
                                         <label class="col-form-label col-md-3">Select Tag</label>
                                         <div class="col-md-8">
-                                            <select class="form-control post_tag_select" multiple="multiple">
+                                            <select class="form-control post_tag_select"  name="tag[]" multiple="multiple">
 
                                                 @foreach ($post_tags as $ptag )
-                                                <option>{{ $ptag->name }}</option>
+                                                <option  value= {{ $ptag->id  }}>{{ $ptag->name }}</option>
                                                 @endforeach
 
 

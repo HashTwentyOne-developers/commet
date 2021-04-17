@@ -75,7 +75,7 @@
                                             {{-- <a href="#" class="btn btn-sm btn-success"><i class="fa fa-eye" aria-hidden="true"></i>
                                             </a> --}}
                                             <a href="{{ route('post.trashperform',$data->id) }}" class="btn btn-sm btn-warning">Recover Data</a>
-                                            <form action="{{ route('postcat.destroy', $data->id) }}" method="POST" class="d-inline">
+                                            <form action="{{ route('post.destroy', $data->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
                                             <button class=" btn btn-sm btn-danger del_button" data-toggle="tooltip" title="Delete">Permanant Delete</button>

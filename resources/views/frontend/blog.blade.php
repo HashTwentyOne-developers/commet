@@ -36,7 +36,14 @@
             <article class="post-single">
               <div class="post-info">
                 <h2><a href="#">{{ $post ->title }}</a></h2>
-                <h6 class="upper"><span>By</span><a href="#"> Admin</a><span class="dot"></span><span>28 September 2015</span><span class="dot"></span><a href="#" class="post-tag">Startups</a></h6>
+                <h6 class="upper"><span>By</span><a href="#"> {{ $post ->user ->name }}</a><span class="dot"></span><span>{{ date('d M, Y',strtotime($post ->created_at)) }}</span><span class="dot"></span>
+
+                    @foreach ($post ->postCategories as $cat )
+                    <a href="#" class="post-tag">{{ $cat -> name }},</a>
+                    @endforeach
+
+
+                </h6>
               </div>
               <div class="post-media">
                 <a href="#">
@@ -56,7 +63,13 @@
             <article class="post-single">
                 <div class="post-info">
                   <h2><a href="#">{{ $post ->title }}</a></h2>
-                  <h6 class="upper"><span>By</span><a href="#"> Admin</a><span class="dot"></span><span>28 September 2015</span><span class="dot"></span><a href="#" class="post-tag">Startups</a></h6>
+                  <h6 class="upper"><span>By</span><a href="#"> {{ $post ->user ->name }}</a><span class="dot"></span><span>{{ date('d M, Y',strtotime($post ->created_at)) }}</span><span class="dot"></span>
+
+                    @foreach ($post ->postCategories as $cat )
+                    <a href="#" class="post-tag">{{ $cat -> name }},</a>
+                    @endforeach
+
+                </h6>
                 </div>
                 <div class="post-media">
                   <div data-options="{&quot;animation&quot;: &quot;slide&quot;, &quot;controlNav&quot;: true" class="flexslider nav-outside">
@@ -85,7 +98,13 @@
             <article class="post-single">
                 <div class="post-info">
                   <h2><a href="#">{{ $post->title }}</a></h2>
-                  <h6 class="upper"><span>By</span><a href="#"> Admin</a><span class="dot"></span><span>28 September 2015</span><span class="dot"></span><a href="#" class="post-tag">Entrepreneurship</a></h6>
+                  <h6 class="upper"><span>By</span><a href="#"> {{ $post ->user ->name }}</a><span class="dot"></span><span>{{ date('d M, Y',strtotime($post ->created_at)) }}</span><span class="dot"></span>
+
+                    @foreach ($post ->postCategories as $cat )
+                    <a href="#" class="post-tag">{{ $cat -> name }},</a>
+                    @endforeach
+
+                </h6>
                 </div>
                 <div class="post-media">
                   <div class="media-video">
@@ -103,23 +122,12 @@
 
             @endforeach
 
+
+
           </div>
-          <ul class="pagination">
-            <li><a href="#" aria-label="Previous"><span aria-hidden="true"><i class="ti-arrow-left"></i></span></a>
-            </li>
-            <li class="active"><a href="#">1</a>
-            </li>
-            <li><a href="#">2</a>
-            </li>
-            <li><a href="#">3</a>
-            </li>
-            <li><a href="#">4</a>
-            </li>
-            <li><a href="#">5</a>
-            </li>
-            <li><a href="#" aria-label="Next"><span aria-hidden="true"><i class="ti-arrow-right"></i></span></a>
-            </li>
-          </ul>
+
+          {{ $all_post ->links('paginate') }}
+
           <!-- end of pagination-->
         </div>
             @include('frontend.partials.sidebar')
