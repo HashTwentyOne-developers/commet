@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/blog',[App\Http\Controllers\frontendViewController::class,'blogView']);
+Route::post('/blog',[App\Http\Controllers\frontendViewController::class,'blogSearch']) ->name('post.search');
 
 // Auth::routes();
 
