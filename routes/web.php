@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Route::get('/blog',[App\Http\Controllers\frontendViewController::class,'blogView']);
 Route::post('/blog',[App\Http\Controllers\frontendViewController::class,'blogSearch']) ->name('post.search');
+Route::get('blog/category/{slug}',[App\Http\Controllers\frontendViewController::class,'blogCatSearch']) ->name('post.cat.search');
+Route::get('blog/{title}',[App\Http\Controllers\frontendViewController::class,'blogSingleView']) ->name('post.blog.single');
 
 // Auth::routes();
 

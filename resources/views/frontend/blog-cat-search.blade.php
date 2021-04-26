@@ -52,7 +52,7 @@
               </div>
               <div class="post-body">
                 <p>{!! Str::of(htmlspecialchars_decode($post->description)) -> words(100) !!}</p>
-                <p><a href="{{ route('post.blog.single',$post->title) }}" class="btn btn-color btn-sm">Read More</a>
+                <p><a href="#" class="btn btn-color btn-sm">Read More</a>
                 </p>
               </div>
             </article>
@@ -86,7 +86,7 @@
                 </div>
                 <div class="post-body">
                   <p>{!! Str::of(htmlspecialchars_decode($post->description)) -> words(100) !!}</p>
-                  <p><a href="{{ route('post.blog.single',$post->title) }}" class="btn btn-color btn-sm">Read More</a>
+                  <p><a href="#" class="btn btn-color btn-sm">Read More</a>
                   </p>
                 </div>
               </article>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="post-body">
                   <p>{!! Str::of(htmlspecialchars_decode($post -> description)) -> words(200) !!}</p>
-                  <p><a href="{{ route('post.blog.single',$post->title) }}" class="btn btn-color btn-sm">Read More</a>
+                  <p><a href="#" class="btn btn-color btn-sm">Read More</a>
                   </p>
                 </div>
               </article>
@@ -126,7 +126,6 @@
 
           </div>
 
-          {{ $all_post ->links('paginate') }}
 
           <!-- end of pagination-->
         </div>

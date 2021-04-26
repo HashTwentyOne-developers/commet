@@ -23,7 +23,7 @@
             @foreach ($post_cat as $cat )
 
 
-          <li><a href="{{ $cat ->id }}">{{ $cat -> name }}</a> </li>
+          <li><a href="{{ route('post.cat.search',$cat->slug) }}">{{ $cat -> name }}</a> </li>
 
           @endforeach
 
