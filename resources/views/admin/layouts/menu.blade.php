@@ -20,7 +20,7 @@
                 <li class="submenu">
                     <a href="#"><i class="fe fe-document"></i> <span> Product</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="invoice-report.html">Product</a></li>
+                        <li><a href="{{ route('productCategory.index') }}">Product</a></li>
                         <li><a href="invoice-report.html">Category</a></li>
                         <li><a href="invoice-report.html">Tag</a></li>
                         <li><a href="invoice-report.html">Brand</a></li>

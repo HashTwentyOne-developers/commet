@@ -120,7 +120,7 @@ class postController extends Controller
         $posts = post::create([
             "user_id" =>Auth::user()->id,
             "title" => $request->title,
-            "slug" => Str::slug($request->title),
+            "slug" => $this->getslug($request->title),
             "featured" => json_encode($featured_img),
             "description" => $request->content,
             "posted_by" => Auth::user()->id
@@ -150,8 +150,17 @@ class postController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   $p= post::find($id);
+        $post_cat= postCategory::all();
+        $post_tag= post_tag::all();
+        return view('admin.post.post.update',[
+            'post' => $p,
+            'post_category' => $post_cat,
+            'post_tags' => $post_tag,
+        ]);
+
+
+
     }
 
     /**
@@ -163,7 +172,78 @@ class postController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $edit_id = $id;
+        $edit_data=post::find($edit_id);
+        $edit_data -> title = $request->title;
+        $edit_data -> slug=Str::slug($request->title);
+        $edit_data -> description= $request ->content;
+
+        $edit_data->postCategories()->sync($request->checkbox);
+        $edit_data->postTags()->sync($request->tag);
+
+        $unique_file_name='';
+        if($request->hasFile('new_image')){
+            $img = $request->file('new_image');
+            $unique_file_name=md5(rand().time()). '.' . $img ->getClientOriginalExtension();
+            $img -> move(public_path('media/post/'),$unique_file_name);
+            // unlink('media/post/'.$request-> old_image);
+        }
+
+        else{
+
+            $unique_file_name= $request ->old_image;
+
+        }
+
+        $gall_img=[];
+
+
+        if($request->hasFile('new_gallery_img'))
+            {
+                foreach($request ->file('new_gallery_img') as $gal_img){
+                    $unique_files_name=md5(rand().time()). '.' . $gal_img -> getClientOriginalExtension();
+                    $gal_img -> move(public_path('media/post/'),$unique_files_name);
+                    array_push($gall_img,$unique_files_name);
+                    //
+                }
+
+                foreach($request-> old_gallery_img as $ims){
+                    unlink('media/post/'. $ims);
+                }
+            }
+
+          else if($request->old_gallery_img != ''){
+            $gall_img= $request-> old_gallery_img;
+            }
+
+            else{
+                $gall_img= [];
+            }
+
+
+
+
+
+
+
+
+
+        $featured_img=[
+            'post_type' => $request->post_type,
+            'image' => $unique_file_name,
+            'gallery_image' => $gall_img,
+            'post_audio' =>$request->audio,
+            'post_video' => str_replace('watch?v=','embed/',$request->video)
+        ];
+
+        $edit_data-> featured = json_encode($featured_img);
+
+
+
+        $edit_data ->update();
+
+        return redirect()->route('post.index') ->with('success','data updated successfully');
+
     }
 
     /**

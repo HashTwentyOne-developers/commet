@@ -221,5 +221,31 @@
             }
         })
 
+        // Update Post format
+
+        if ($("#format_update").val() == 'audio'){
+           $('.audio_post').show();
+        }
+        else if ($("#format_update").val() == 'gallery'){
+            $('.gallery_post').show();
+        }
+
+        else if ($("#format_update").val() == 'video'){
+            $('.video_post').show();
+        }
+
+        else{
+            $('.standard_post').show();
+        }
+
+
+
+
+
+
+
+
+
+
     });
     })(jQuery)

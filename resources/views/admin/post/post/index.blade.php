@@ -86,7 +86,7 @@
                                         <td>
                                             {{-- <a href="#" class="btn btn-sm btn-success"><i class="fa fa-eye" aria-hidden="true"></i>
                                             </a> --}}
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                                            <a href="{{ route('post.edit',$data->id) }}" class="btn btn-sm btn-warning"><i class="fa fa-telegram" aria-hidden="true"></i></a>
                                             <a href="{{ route('post.trashperform',$data->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>

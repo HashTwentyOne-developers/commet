@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 // use Illuminate\Support\Facades\Auth;
 
@@ -53,4 +54,9 @@ Route::get('postcat/statusActive/{id}','App\Http\Controllers\postCategoryControl
 Route::resource('post-tag','App\Http\Controllers\postTagController');
 Route::get('post-tag/statusInactive/{id}','App\Http\Controllers\postTagController@statusCheckedInactive');
 Route::get('post-tag/statusActive/{id}','App\Http\Controllers\postTagController@statusCheckedActive');
+
+//product Category
+Route::middleware(['auth'])->group(function () {
+    Route::resource('productCategory','App\Http\Controllers\productCatManagement');
+});
 

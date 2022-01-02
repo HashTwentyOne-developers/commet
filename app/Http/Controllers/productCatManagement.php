@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\productCat;
 use Illuminate\Http\Request;
-use App\Models\postCategory;
 use Illuminate\Support\Str;
 
-class postCategoryController extends Controller
+class productCatManagement extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,10 @@ class postCategoryController extends Controller
      */
     public function index()
     {
-        $data = postCategory::all();
-        return view('admin.post.Category.index',[
-            'all_data' => $data
-        ]);
+      $data = productCat ::all();
+      return view('admin.product.Category.index',[
+        'all_data' => $data
+    ]);
     }
 
     /**
@@ -28,7 +28,7 @@ class postCategoryController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -41,14 +41,16 @@ class postCategoryController extends Controller
     {
         $this -> validate($request,[
 
-            'cat_name' => 'required|unique:post_categories,name'
+            'cat_name' => 'required|unique:product_cats,name'
+
+
         ]);
-        postCategory::create([
+             productCat::create([
             "name" => $request->cat_name,
             "slug" => Str::slug($request->cat_name)
         ]);
 
-        return redirect()->route('postcat.index') ->with('success','data send successfully');
+        return redirect()->route('productCategory.index') ->with('success','data send successfully');
     }
 
     /**
@@ -59,7 +61,7 @@ class postCategoryController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -70,11 +72,7 @@ class postCategoryController extends Controller
      */
     public function edit($id)
     {
-        $edit_data = postCategory::find($id);
-        return[
-            'id' => $edit_data->id,
-            'name' => $edit_data->name,
-        ];
+        //
     }
 
     /**
@@ -86,16 +84,7 @@ class postCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $edit_id = $request ->cat_id;
-
-        $edit_data = postCategory::find($edit_id);
-        $edit_data ->name=$request->cat_name;
-        $edit_data ->slug=Str::slug($request->cat_name);
-        $edit_data ->update();
-
-        return redirect()->route('postcat.index') ->with('success','data updated successfully');
-
+        //
     }
 
     /**
@@ -106,25 +95,6 @@ class postCategoryController extends Controller
      */
     public function destroy($id)
     {
-       $cat_del= postCategory::find($id);
-       $cat_del ->delete();
-       return redirect()->back()->with('delete','Data Deleted Successfully');
-    }
-
-    /**
-     * status Inactive dunction
-     */
-    public function statusCheckedInactive($id){
-
-       $status_update=postCategory::find($id);
-       $status_update -> status = false;
-       $status_update ->update();
-    }
-
-    public function statusCheckedActive($id){
-
-        $status_update=postCategory::find($id);
-        $status_update -> status = true;
-        $status_update ->update();
+        //
     }
 }
